@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pop Tracker - Your Everyday Guide to Pop Culture</title>
+    
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body class="container all-center">
+    <header class="all-center">
+        <h1 id="app-title">Pop Tracker</h1>
+        <span>Your Everyday Pop Culture Tracker</span>
+    </header>
+    <main>
+        <!-- Body of the Application -->
+
+        <section id="search-section" class="col all-center">
+            <h3>Search Begins Here...</h3>
+            <input type="text" name="search" id="search-box" placeholder="Start typing the name of the show, movies, etc you're searching..." />
+            <div id="search-result" class="col all-center">
+                <p class="no-result-message">
+                    Sorry, No Result Found!
+                </p>
+                <div class="movie-item">
+                    <div class="movie-img">
+                        <img src="https://dummyimage.com/150x100/ccc/000" alt="Movie Title">
+                    </div>
+                    <div class="movie-description">
+                        <span>Movie Title</span>
+                        <br/>
+                        <span>Release Year</span>
+                    </div>
+                    <button type="button" class="add-movie">Add To Collection</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="collection-section">
+            <h2>Your Movie Database</h2>
+            <div id="sorting-section">
+                <!-- Sorting Options -->
+                <b>Sort By : </b>
+                <input type="radio" name="sorting" value="title" checked> Title
+                <input type="radio" name="sorting" value="year"> Release Year
+            </div>
+            <div id="movie-list" class="row all-center">
+                <div class="movie-item">
+                    <div class="movie-img">
+                        <img src="https://dummyimage.com/150x100/ccc/000" alt="Movie Title">
+                    </div>
+                    <div class="movie-description">
+                        <span>Movie Title</span>
+                        <br/>
+                        <span>Release Year</span>
+                    </div>
+                    <button type="button" class="add-movie">Add To Collection</button>
+                </div>
+                <div class="movie-item">
+                    <div class="movie-img">
+                        <img src="https://dummyimage.com/150x100/ccc/000" alt="Movie Title">
+                    </div>
+                    <div class="movie-description">
+                        <span>Movie Title</span>
+                        <br/>
+                        <span>Release Year</span>
+                    </div>
+                    <button type="button" class="add-movie">Add To Collection</button>
+                </div>
+                <div class="movie-item">
+                    <div class="movie-img">
+                        <img src="https://dummyimage.com/150x100/ccc/000" alt="Movie Title">
+                    </div>
+                    <div class="movie-description">
+                        <span>Movie Title</span>
+                        <br/>
+                        <span>Release Year</span>
+                    </div>
+                    <button type="button" class="add-movie">Add To Collection</button>
+                </div>
+                <div class="movie-item">
+                    <div class="movie-img">
+                        <img src="https://dummyimage.com/150x100/ccc/000" alt="Movie Title">
+                    </div>
+                    <div class="movie-description">
+                        <span>Movie Title</span>
+                        <br/>
+                        <span>Release Year</span>
+                    </div>
+                    <button type="button" class="add-movie">Add To Collection</button>
+                </div>
+                <div class="movie-item">
+                    <div class="movie-img">
+                        <img src="https://dummyimage.com/150x100/ccc/000" alt="Movie Title">
+                    </div>
+                    <div class="movie-description">
+                        <span>Movie Title</span>
+                        <br/>
+                        <span>Release Year</span>
+                    </div>
+                    <button type="button" class="add-movie">Add To Collection</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Copyright &copy; Ekansh Kothiyal 2018
+    </footer>
+</body>
+<script src="dist/index.bundle.js"></script>
+</html>
