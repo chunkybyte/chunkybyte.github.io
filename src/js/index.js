@@ -1,4 +1,4 @@
-// Service to access local storage for the application data
+// Service to interact with the local storage
 const DataService = (() => ({
     set: (key, value) => {
         localStorage.setItem(key, JSON.stringify(value));
@@ -15,8 +15,8 @@ const App = (() => ({
     // Initial Run Point of the Application
     init: () => {
         const searchBox = document.getElementById('search-box');
-        searchBox.addEventListener('input', (e) => App.searchItem(e.target.value));
-        
+        searchBox.addEventListener('input', (e) => App.searchOMDBAPI(e.target.value));
+
         App.fetchInitialCollection();
     },
     // Fetches the initial sample data from the local JSON for the first time and stores in the local storage
@@ -40,10 +40,29 @@ const App = (() => ({
     // Populates the DOM with the list of movies from the localstorage
     populateCollection: () => {
         const movielist = DataService.get('data');
-        console.log(movielist);
-
         const listArea = document.getElementById('movie-list');
-        movielist.map(itemData => listArea.appendChild(App.createItem(itemData)));
+        listArea.innerHTML = '';
+        
+        if (movielist.length === 0) {
+            const emptyMsg = document.createElement('p');
+            emptyMsg.className = 'all-center';
+            emptyMsg.innerHTML = 'Collection Empty! Dude, Start Adding Movies!';
+            listArea.appendChild(emptyMsg);
+            return;
+        }
+
+        movielist.map(itemData => {
+            const listItem = App.createItem(itemData);
+            const delBtn = document.createElement('button');
+            delBtn.className = "add-movie";
+            delBtn.innerHTML = "Delete";
+            delBtn.addEventListener('click', (e) => {
+                App.removeFromCollection(e.target.parentElement.id);
+            });
+            listItem.appendChild(delBtn);
+
+            listArea.appendChild(listItem);
+        });
     },
     // Creating the HTML structure of a movie-item component
     createItem: (itemData) => {
@@ -62,8 +81,7 @@ const App = (() => ({
         desc.appendChild(year);
 
         var imgTag = document.createElement('img');
-        let srcval = itemData.Poster === 'N/A' ? 
-            'https://dummyimage.com/150x150/f5f5f5/0919f0&text=Poster+Unavailable' : itemData.Poster;
+        let srcval = itemData.Poster === 'N/A' ? 'https://dummyimage.com/150x150/f5f5f5/0919f0&text=Poster+Unavailable' : itemData.Poster;
         imgTag.setAttribute("src", srcval);
         imgTag.setAttribute("alt", itemData.Title);
 
@@ -73,13 +91,114 @@ const App = (() => ({
         
         let itemDiv = document.createElement('div');
         itemDiv.className = "movie-item";
+        itemDiv.id = itemData.imdbID;
         itemDiv.appendChild(imgDiv);
         itemDiv.appendChild(desc);
 
         return itemDiv;
     },
-    searchItem: (e) => {
-        console.log(e);
+    searchOMDBAPI: (input) => {
+        const searchSection = document.getElementById('search-result');
+
+        if (input.length === 0) {
+            searchSection.innerHTML = '';
+        } 
+
+        if (input.length >= 2) {
+            fetch(`http://www.omdbapi.com/?apikey=4aaf9e6a&t=${input}&plot=short&r=json`)
+                .then(res => res.json())
+                .then(res => {
+                    App.searchResult(res);
+
+                    // let resultTag;
+                    // if (res.Response === 'False') {
+                    //     resultTag = document.createElement('p');
+                    //     resultTag.className = "no-result-message";
+                    //     resultTag.innerHTML = "Sorry, No Result Found!";
+                    // } else {
+                    //     resultTag = App.createItem(res);
+
+                    //     const addBtn = document.createElement('button');
+                    //     addBtn.className = "add-movie";
+
+                    //     // Check if the item already exists
+                    //     if (App.checkItemExists(res.imdbID)) {
+                    //         addBtn.innerHTML = "Already Added!";
+                    //         addBtn.disabled = true;
+                    //         addBtn.className = "disable-btn";
+                    //     } else {
+                    //         addBtn.innerHTML = "Add to Collection";
+                    //         addBtn.addEventListener('click', () => {
+                    //             App.addToCollection(res);
+                    //         });
+                    //     }
+
+                    //     resultTag.appendChild(addBtn);
+                    // }
+
+                    // searchSection.innerHTML = '';
+                    // searchSection.appendChild(resultTag);
+                }
+            );
+        }
+    },
+    searchResult: (res) => {
+        const searchSection = document.getElementById('search-result');
+
+        let resultTag;
+        if (res.Response === 'False') {
+            resultTag = document.createElement('p');
+            resultTag.className = "no-result-message";
+            resultTag.innerHTML = "Sorry, No Result Found!";
+        } else {
+            resultTag = App.createItem(res);
+
+            const addBtn = document.createElement('button');
+            addBtn.className = "add-movie";
+
+            // Check if the item already exists
+            if (App.checkItemExists(res.imdbID)) {
+                addBtn.innerHTML = "Already Added!";
+                addBtn.disabled = true;
+                addBtn.className = "disable-btn";
+            } else {
+                addBtn.innerHTML = "Add to Collection";
+                addBtn.addEventListener('click', () => {
+                    App.addToCollection(res);
+                });
+            }
+
+            resultTag.appendChild(addBtn);
+        }
+
+        searchSection.innerHTML = '';
+        searchSection.appendChild(resultTag);
+    },
+    addToCollection: (itemToAdd) => {
+        const movielist = DataService.get('data');
+        movielist.push(itemToAdd);
+        DataService.set('data', movielist);
+
+        App.searchResult(itemToAdd);
+        App.populateCollection();
+    },
+    removeFromCollection: (id) => {
+        console.log(id);
+
+        const movielist = DataService.get('data');
+        const updatedList = movielist.filter(item => item.imdbID != id);
+
+        DataService.set('data', updatedList);
+        App.populateCollection();
+    },
+    checkItemExists: (id) => {
+        const checkData = DataService.get('data').find(item => item.imdbID == id);
+        console.log(checkData);
+        if (checkData === undefined) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }))();
 

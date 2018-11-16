@@ -101,6 +101,14 @@ header {
   .add-movie:hover {
     box-shadow: 2px 5px 5px #545454; }
 
+.disable-btn {
+  padding: 10px 20px;
+  color: #ffffff;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 3px;
+  background-image: linear-gradient(to right, #f16a6a, #e4564c); }
+
 .no-result-message {
   border: 1px solid #CCC;
   border-radius: 4px;
