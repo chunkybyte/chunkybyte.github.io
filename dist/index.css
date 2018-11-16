@@ -78,7 +78,8 @@ header {
 
 .movie-img {
   margin: 5px 10px;
-  width: 150px; }
+  max-width: 150px;
+  min-width: 50px; }
   .movie-img > img {
     width: 100%;
     height: auto; }
