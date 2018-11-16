@@ -19,10 +19,27 @@ var App = function () {
     return {
         // Initial Run Point of the Application
         init: function init() {
+            // Initialize the Sorting Key value in Local Storage
+            if (!DataService.hasProperty('sortkey')) {
+                DataService.set('sortkey', 'title');
+            } else {
+                // FIX : Handling the page refresh scenario
+                document.querySelector('input[value=' + DataService.get('sortkey') + ']').checked = true;
+            }
+
+            // Add Listener to the Search Input Field
             var searchBox = document.getElementById('search-box');
             searchBox.addEventListener('input', function (e) {
                 return App.searchOMDBAPI(e.target.value);
             });
+
+            // Sorting Functionality : Setting the sortkey on radio button change listener
+            var sortRadios = document.querySelectorAll('input[name="sorting"]');
+            for (var i = 0; i < sortRadios.length; i++) {
+                sortRadios[i].addEventListener('change', function (e) {
+                    return App.setSortKey(e.target.value);
+                });
+            }
 
             App.fetchInitialCollection();
         },
@@ -36,7 +53,7 @@ var App = function () {
                 }).then(function (data) {
                     if (typeof Storage !== 'undefined') {
                         DataService.set('data', data.data);
-                        App.populateCollection();
+                        App.sortingCollection();
                     } else {
                         alert('Local Storage support not found');
                     }
@@ -134,7 +151,7 @@ var App = function () {
 
                 // Check if the item already exists
                 if (App.checkItemExists(res.imdbID)) {
-                    addBtn.innerHTML = "Already Added!";
+                    addBtn.innerHTML = "Added to Collection!";
                     addBtn.disabled = true;
                     addBtn.className = "disable-btn";
                 } else {
@@ -156,11 +173,9 @@ var App = function () {
             DataService.set('data', movielist);
 
             App.searchResult(itemToAdd);
-            App.populateCollection();
+            App.sortingCollection();
         },
         removeFromCollection: function removeFromCollection(id) {
-            console.log(id);
-
             var movielist = DataService.get('data');
             var updatedList = movielist.filter(function (item) {
                 return item.imdbID != id;
@@ -173,12 +188,55 @@ var App = function () {
             var checkData = DataService.get('data').find(function (item) {
                 return item.imdbID == id;
             });
-            console.log(checkData);
             if (checkData === undefined) {
                 return false;
             } else {
                 return true;
             }
+        },
+        setSortKey: function setSortKey(key) {
+            if (key === null) {
+                key = 'title';
+            }
+
+            DataService.set('sortkey', key);
+            App.sortingCollection();
+        },
+        sortingCollection: function sortingCollection() {
+            var movielist = DataService.get('data');
+            var sortkey = DataService.get('sortkey');
+
+            function compareOnKey(a, b) {
+                var key1 = void 0,
+                    key2 = void 0;
+                switch (sortkey) {
+                    case 'title':
+                        key1 = a.Title;
+                        key2 = b.Title;
+                        break;
+                    case 'year':
+                        key1 = parseInt(a.Year);
+                        key2 = parseInt(b.Year);
+                        break;
+                    default:
+                        key1 = a.Title;
+                        key2 = b.Title;
+                }
+                var compare = 0;
+                if (key1 > key2) {
+                    compare = 1;
+                } else if (key1 < key2) {
+                    compare = -1;
+                }
+
+                return compare;
+            }
+
+            movielist.sort(compareOnKey);
+
+            DataService.set('data', movielist);
+
+            App.populateCollection();
         }
     };
 }();

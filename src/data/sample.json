@@ -108,6 +108,267 @@
             "Production": "Paramount Pictures",
             "Website": "http://www.republicofwadiya.com",
             "Response": "True"
-        }
+        },
+        {
+            "Title":"Whiplash",
+            "Year":"2014",
+            "Rated":"R",
+            "Released":"15 Oct 2014",
+            "Runtime":"106 min",
+            "Genre":"Drama, Music",
+            "Director":"Damien Chazelle",
+            "Writer":"Damien Chazelle",
+            "Actors":"Miles Teller, J.K. Simmons, Paul Reiser, Melissa Benoist",
+            "Plot":"A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.",
+            "Language":"English",
+            "Country":"USA",
+            "Awards":"Won 3 Oscars. Another 89 wins & 136 nominations.",
+            "Poster":"https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"8.5/10"
+               },
+               {
+                  "Source":"Rotten Tomatoes",
+                  "Value":"94%"
+               },
+               {
+                  "Source":"Metacritic",
+                  "Value":"88/100"
+               }
+            ],
+            "Metascore":"88",
+            "imdbRating":"8.5",
+            "imdbVotes":"576,982",
+            "imdbID":"tt2582802",
+            "Type":"movie",
+            "DVD":"24 Feb 2015",
+            "BoxOffice":"N/A",
+            "Production":"Sony Pictures Classics",
+            "Website":"http://sonyclassics.com/whiplash/",
+            "Response":"True"
+         },
+         {
+            "Title":"Groundhog Day",
+            "Year":"1993",
+            "Rated":"PG",
+            "Released":"12 Feb 1993",
+            "Runtime":"101 min",
+            "Genre":"Comedy, Fantasy, Romance",
+            "Director":"Harold Ramis",
+            "Writer":"Danny Rubin (screenplay), Harold Ramis (screenplay), Danny Rubin (story)",
+            "Actors":"Bill Murray, Andie MacDowell, Chris Elliott, Stephen Tobolowsky",
+            "Plot":"A weatherman finds himself inexplicably living the same day over and over again.",
+            "Language":"English, French, Italian",
+            "Country":"USA",
+            "Awards":"Won 1 BAFTA Film Award. Another 6 wins & 17 nominations.",
+            "Poster":"https://m.media-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"8.0/10"
+               },
+               {
+                  "Source":"Rotten Tomatoes",
+                  "Value":"96%"
+               },
+               {
+                  "Source":"Metacritic",
+                  "Value":"72/100"
+               }
+            ],
+            "Metascore":"72",
+            "imdbRating":"8.0",
+            "imdbVotes":"523,331",
+            "imdbID":"tt0107048",
+            "Type":"movie",
+            "DVD":"29 Jan 2002",
+            "BoxOffice":"N/A",
+            "Production":"Columbia Pictures",
+            "Website":"N/A",
+            "Response":"True"
+         },
+         {
+            "Title":"Wake Up Sid",
+            "Year":"2009",
+            "Rated":"N/A",
+            "Released":"02 Oct 2009",
+            "Runtime":"138 min",
+            "Genre":"Comedy, Drama, Romance",
+            "Director":"Ayan Mukherjee",
+            "Writer":"Ayan Mukherjee (story and screenplay), Niranjan Iyengar (dialogue)",
+            "Actors":"Ranbir Kapoor, Konkona Sen Sharma, Supriya Pathak, Anupam Kher",
+            "Plot":"A spoiled young adult living in Mumbai experiences a change in his lazy ways when he meets a woman at a party, who inspires him to \"wake up\".",
+            "Language":"Hindi, English, Bengali",
+            "Country":"India",
+            "Awards":"2 wins & 13 nominations.",
+            "Poster":"https://m.media-amazon.com/images/M/MV5BMDc1ZDBkODMtYjI0MC00NDcyLWFhMGUtYzM4NDQyMzgyYzg1XkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"7.6/10"
+               }
+            ],
+            "Metascore":"N/A",
+            "imdbRating":"7.6",
+            "imdbVotes":"23,553",
+            "imdbID":"tt1324059",
+            "Type":"movie",
+            "DVD":"04 Jan 2010",
+            "BoxOffice":"$611,574",
+            "Production":"UTV",
+            "Website":"http://wakeupsid.com/",
+            "Response":"True"
+         },
+         {
+            "Title":"Lobster",
+            "Year":"1976–",
+            "Rated":"N/A",
+            "Released":"25 Feb 1976",
+            "Runtime":"58 min",
+            "Genre":"Crime",
+            "Director":"N/A",
+            "Writer":"N/A",
+            "Actors":"Heinz Baumann, Léonie Thelen, Max Mairich, Gunther Malzacher",
+            "Plot":"N/A",
+            "Language":"German",
+            "Country":"West Germany",
+            "Awards":"N/A",
+            "Poster":"N/A",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"7.1/10"
+               }
+            ],
+            "Metascore":"N/A",
+            "imdbRating":"7.1",
+            "imdbVotes":"11",
+            "imdbID":"tt0072533",
+            "Type":"series",
+            "totalSeasons":"1",
+            "Response":"True"
+         },
+         {
+            "Title":"La La Land",
+            "Year":"2016",
+            "Rated":"PG-13",
+            "Released":"25 Dec 2016",
+            "Runtime":"128 min",
+            "Genre":"Comedy, Drama, Music, Musical, Romance",
+            "Director":"Damien Chazelle",
+            "Writer":"Damien Chazelle",
+            "Actors":"Ryan Gosling, Emma Stone, Amiée Conn, Terry Walters",
+            "Plot":"While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations for the future.",
+            "Language":"English",
+            "Country":"USA, Hong Kong",
+            "Awards":"Won 6 Oscars. Another 215 wins & 254 nominations.",
+            "Poster":"https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_SX300.jpg",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"8.1/10"
+               },
+               {
+                  "Source":"Rotten Tomatoes",
+                  "Value":"91%"
+               },
+               {
+                  "Source":"Metacritic",
+                  "Value":"93/100"
+               }
+            ],
+            "Metascore":"93",
+            "imdbRating":"8.1",
+            "imdbVotes":"400,706",
+            "imdbID":"tt3783958",
+            "Type":"movie",
+            "DVD":"25 Apr 2017",
+            "BoxOffice":"$151,058,124",
+            "Production":"Liongate Films",
+            "Website":"http://www.lalaland.movie/",
+            "Response":"True"
+         },
+         {
+            "Title":"Three Billboards Outside Ebbing, Missouri",
+            "Year":"2017",
+            "Rated":"R",
+            "Released":"01 Dec 2017",
+            "Runtime":"115 min",
+            "Genre":"Comedy, Crime, Drama",
+            "Director":"Martin McDonagh",
+            "Writer":"Martin McDonagh",
+            "Actors":"Frances McDormand, Caleb Landry Jones, Kerry Condon, Sam Rockwell",
+            "Plot":"A mother personally challenges the local authorities to solve her daughter's murder when they fail to catch the culprit.",
+            "Language":"English",
+            "Country":"UK, USA",
+            "Awards":"Won 2 Oscars. Another 104 wins & 193 nominations.",
+            "Poster":"https://m.media-amazon.com/images/M/MV5BMjMxNzgwMDUyMl5BMl5BanBnXkFtZTgwMTQ0NTIyNDM@._V1_SX300.jpg",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"8.2/10"
+               },
+               {
+                  "Source":"Rotten Tomatoes",
+                  "Value":"92%"
+               },
+               {
+                  "Source":"Metacritic",
+                  "Value":"88/100"
+               }
+            ],
+            "Metascore":"88",
+            "imdbRating":"8.2",
+            "imdbVotes":"281,916",
+            "imdbID":"tt5027774",
+            "Type":"movie",
+            "DVD":"27 Feb 2018",
+            "BoxOffice":"$52,000,189",
+            "Production":"Fox Searchlight Pictures",
+            "Website":"http://www.foxsearchlight.com/threebillboardsoutsideebbingmissouri/",
+            "Response":"True"
+         },
+         {
+            "Title":"A Lot Like Love",
+            "Year":"2005",
+            "Rated":"PG-13",
+            "Released":"22 Apr 2005",
+            "Runtime":"107 min",
+            "Genre":"Comedy, Drama, Romance",
+            "Director":"Nigel Cole",
+            "Writer":"Colin Patrick Lynch",
+            "Actors":"Amanda Peet, Ashton Kutcher, Taryn Manning, Aimee Garcia",
+            "Plot":"On a flight from Los Angeles to New York, Oliver and Emily make a connection, only to decide that they are poorly suited to be together. Over the next seven years, however, they are ...",
+            "Language":"English, American Sign Language",
+            "Country":"USA",
+            "Awards":"1 win & 3 nominations.",
+            "Poster":"https://m.media-amazon.com/images/M/MV5BMTQyMjU1MTYxNl5BMl5BanBnXkFtZTcwMjI2MjgyMQ@@._V1_SX300.jpg",
+            "Ratings":[
+               {
+                  "Source":"Internet Movie Database",
+                  "Value":"6.6/10"
+               },
+               {
+                  "Source":"Rotten Tomatoes",
+                  "Value":"41%"
+               },
+               {
+                  "Source":"Metacritic",
+                  "Value":"48/100"
+               }
+            ],
+            "Metascore":"48",
+            "imdbRating":"6.6",
+            "imdbVotes":"62,572",
+            "imdbID":"tt0391304",
+            "Type":"movie",
+            "DVD":"23 Aug 2005",
+            "BoxOffice":"$21,835,784",
+            "Production":"Touchstone Pictures",
+            "Website":"http://alotlikelove.movies.go.com",
+            "Response":"True"
+         }
     ]
 }

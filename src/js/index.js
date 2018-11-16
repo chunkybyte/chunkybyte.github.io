@@ -14,8 +14,23 @@ const DataService = (() => ({
 const App = (() => ({
     // Initial Run Point of the Application
     init: () => {
+        // Initialize the Sorting Key value in Local Storage
+        if (!DataService.hasProperty('sortkey')) {
+            DataService.set('sortkey', 'title');
+        } else {
+            // FIX : Handling the page refresh scenario
+            document.querySelector(`input[value=${DataService.get('sortkey')}]`).checked = true;
+        }
+
+        // Add Listener to the Search Input Field
         const searchBox = document.getElementById('search-box');
         searchBox.addEventListener('input', (e) => App.searchOMDBAPI(e.target.value));
+
+        // Sorting Functionality : Setting the sortkey on radio button change listener
+        const sortRadios = document.querySelectorAll('input[name="sorting"]');
+        for(let i = 0; i < sortRadios.length; i++) {
+            sortRadios[i].addEventListener('change', (e) => App.setSortKey(e.target.value));
+        }
 
         App.fetchInitialCollection();
     },
@@ -29,7 +44,7 @@ const App = (() => ({
                 .then(data => {
                     if (typeof(Storage) !== 'undefined') {
                         DataService.set('data', data.data);
-                        App.populateCollection();
+                        App.sortingCollection();
                     } else {
                         alert('Local Storage support not found');
                     }
@@ -129,7 +144,7 @@ const App = (() => ({
 
             // Check if the item already exists
             if (App.checkItemExists(res.imdbID)) {
-                addBtn.innerHTML = "Already Added!";
+                addBtn.innerHTML = "Added to Collection!";
                 addBtn.disabled = true;
                 addBtn.className = "disable-btn";
             } else {
@@ -151,11 +166,9 @@ const App = (() => ({
         DataService.set('data', movielist);
 
         App.searchResult(itemToAdd);
-        App.populateCollection();
+        App.sortingCollection();
     },
     removeFromCollection: (id) => {
-        console.log(id);
-
         const movielist = DataService.get('data');
         const updatedList = movielist.filter(item => item.imdbID != id);
 
@@ -164,12 +177,54 @@ const App = (() => ({
     },
     checkItemExists: (id) => {
         const checkData = DataService.get('data').find(item => item.imdbID == id);
-        console.log(checkData);
         if (checkData === undefined) {
             return false;
         } else {
             return true;
         }
+    },
+    setSortKey: (key) => {
+        if (key === null) {
+            key = 'title';
+        }
+
+        DataService.set('sortkey', key);
+        App.sortingCollection();
+    },
+    sortingCollection:  () => {
+        let movielist = DataService.get('data');
+        const sortkey = DataService.get('sortkey');
+
+        function compareOnKey(a, b) {
+            let key1, key2;
+            switch(sortkey) {
+                case 'title': 
+                    key1 = a.Title;
+                    key2 = b.Title;
+                    break;
+                case 'year': 
+                    key1 = parseInt(a.Year);
+                    key2 = parseInt(b.Year);
+                    break;
+                default: 
+                    key1 = a.Title;
+                    key2 = b.Title;
+            }
+            let compare = 0; 
+            if (key1 > key2) {
+                compare = 1;
+            } else if (key1 < key2) {
+                compare = -1;
+            }
+            
+            return compare;
+        }
+        
+        movielist.sort(compareOnKey);
+        
+        DataService.set('data', movielist);
+
+        App.populateCollection();
     }
 }))();
 

@@ -107,6 +107,7 @@ header {
 .movie-description {
   font-size: 14px;
   margin-bottom: 15px;
+  flex-grow: 1;
   > span:nth-of-type(1) {
     font-size: 18px;
     font-weight: bold;
@@ -144,6 +145,7 @@ header {
 
 #movie-list {
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 #sorting-section {
