@@ -111,39 +111,10 @@ var App = function () {
             }
 
             if (input.length >= 2) {
-                fetch('http://www.omdbapi.com/?apikey=4aaf9e6a&t=' + input + '&plot=short&r=json').then(function (res) {
+                fetch('https://www.omdbapi.com/?apikey=4aaf9e6a&t=' + input + '&plot=short&r=json').then(function (res) {
                     return res.json();
                 }).then(function (res) {
                     App.searchResult(res);
-
-                    // let resultTag;
-                    // if (res.Response === 'False') {
-                    //     resultTag = document.createElement('p');
-                    //     resultTag.className = "no-result-message";
-                    //     resultTag.innerHTML = "Sorry, No Result Found!";
-                    // } else {
-                    //     resultTag = App.createItem(res);
-
-                    //     const addBtn = document.createElement('button');
-                    //     addBtn.className = "add-movie";
-
-                    //     // Check if the item already exists
-                    //     if (App.checkItemExists(res.imdbID)) {
-                    //         addBtn.innerHTML = "Already Added!";
-                    //         addBtn.disabled = true;
-                    //         addBtn.className = "disable-btn";
-                    //     } else {
-                    //         addBtn.innerHTML = "Add to Collection";
-                    //         addBtn.addEventListener('click', () => {
-                    //             App.addToCollection(res);
-                    //         });
-                    //     }
-
-                    //     resultTag.appendChild(addBtn);
-                    // }
-
-                    // searchSection.innerHTML = '';
-                    // searchSection.appendChild(resultTag);
                 });
             }
         },
